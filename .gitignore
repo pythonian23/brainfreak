@@ -1,0 +1,3 @@
+pybrainfreak/__pycache__/*
+pybrainfreak/src/__pycache__/*
+*.pyc
