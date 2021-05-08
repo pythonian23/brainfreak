@@ -7,8 +7,11 @@ copy{
 output_to_digits{
 ++++++++++++++++++++++++++++++++++++++++++++++++.------------------------------------------------
 }
-\\\
-+++++
+test_things{
++++
 copy
-output_to_digits
->output_to_digits
+output_to_digits>output_to_digits
+<
+}
+\\\
+test_things

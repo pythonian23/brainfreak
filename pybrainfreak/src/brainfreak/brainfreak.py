@@ -10,7 +10,8 @@ def brainfreak(text):
         char = text[i]
         if func_mode:
             if char == "}":
-                funcs[func_name[::-1]] = func_body
+                func_name = func_name[::-1]
+                funcs[func_name] = func_body
                 func_mode = False
                 func_body = ""
                 func_name = ""
@@ -35,7 +36,16 @@ def brainfreak(text):
                break
 
     text = "".join(text)
-    for func in funcs.keys():
-        text=text.replace(func, funcs[func])
+
+    new_found = True
+    while new_found:
+        new_found = False
+        for key in funcs.keys():
+            for func in funcs.keys():
+                if func in funcs[key]:
+                    new_found = True
+                    funcs[key] = funcs[key].replace(func, funcs[func])
+    for key in funcs.keys():
+        text = text.replace(key, funcs[key])
 
     return text
